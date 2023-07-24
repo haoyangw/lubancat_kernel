@@ -206,11 +206,11 @@ cat <<EOF > debian/rules
 #!$(command -v $MAKE) -f
 
 build:
-	\$(MAKE) KERNELRELEASE=${version} ARCH=${ARCH} \
+	\$(MAKE) KERNELRELEASE=${version} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} \
 	KBUILD_BUILD_VERSION=${revision} KBUILD_SRC=
 
 binary-arch:
-	\$(MAKE) KERNELRELEASE=${version} ARCH=${ARCH} \
+	\$(MAKE) KERNELRELEASE=${version} ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} \
 	KBUILD_BUILD_VERSION=${revision} KBUILD_SRC= intdeb-pkg
 
 clean:
